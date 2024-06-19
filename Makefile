@@ -1,3 +1,5 @@
+.DEFAULT_GOAL := install
+
 install:
 	#install commands
 	pip3 install --upgrade pip &&\
@@ -12,8 +14,10 @@ test:
 	#test where m is the marker and vv is the verbose with cov as coverage
 build:
 	#build container
+	docker build -t befisc .
 run:
 	#run docker
+	docker run befisc:latest
 deploy:
 	#deploy
 all: install format lint test build deploy 
