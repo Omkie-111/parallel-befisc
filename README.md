@@ -48,5 +48,5 @@ This Python script performs the following tasks:
 
   1. **requests** : to post requests to the API.
   2. **concurrent.futures** : for dealing with parallel processing in python. 
-        **Alternatively asyncio and aiohttp can also be used, I used concurrent.futures for simplicity**
+        **( Alternatively asyncio and aiohttp can also be used, I used concurrent.futures for simplicity )**
   3. **Time** : for calculating time.
