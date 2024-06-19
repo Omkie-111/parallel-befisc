@@ -2,29 +2,30 @@ import requests
 import concurrent.futures
 import time
 
-url = 'https://reqres.in/api/users'
+url = "https://reqres.in/api/users"
 
-data = {
-    "name": "Om",
-    "job": "Developer"
-}
+data = {"name": "Om", "job": "Developer"}
+
 
 def post_requests():
     """
     Sends a POST request to the specified URL with the given JSON data.
 
-    The function posts the data to the provided URL and returns the response 
+    The function posts the data to the provided URL and returns the response
     in JSON format.
 
     Returns:
         dict: The response data in JSON format from the API.
     """
-    response = requests.post(url, json=data)
-    return response.json()
+    try:
+        response = requests.post(url, json=data, timeout=10)  
+        return response.json()
+    except requests.exceptions.Timeout:
+        return {}
+
 
 start_time = time.time()
 
-# Create a thread pool and send 5 parallel POST requests
 with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
     # Submit 5 requests
     futures = [executor.submit(post_requests) for _ in range(5)]

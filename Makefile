@@ -6,10 +6,10 @@ install:
 		pip3 install -r requirements.txt
 format:
 	#format code
-	black ./**/**/*.py 
+	black ./**/*.py 
 lint:
 	#to check the code has proper syntax or not flake8 or pylint	
-	pylint --disable=R,C ./**/**/*.py 
+	pylint --disable=R,C ./**/*.py 
 test:
 	#test where m is the marker and vv is the verbose with cov as coverage
 build:
